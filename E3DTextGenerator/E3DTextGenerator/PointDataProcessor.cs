@@ -39,7 +39,7 @@ namespace E3DTextGenerator
                 for (int j = 0; j < characterData.PointsList.Count; j++)
                 {
                     bool isSeparator = BytesSeparatorForLoop.Contains(characterData.PointsTypeList[j]);
-                    if (isSeparator)
+                    if (!isSeparator)
                     {
                         Boundary.Add(characterData.PointsList[j]);
                     }

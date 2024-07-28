@@ -24,7 +24,7 @@ namespace E3DTextGenerator
                 for (int j = 0; j < CharacterDataList[i].Boundaries.Count; j++)
                 {
                     bool isExtrusion = CharacterDataList[i].BoundariesNegativeExtrusions.Split(',').Contains(j.ToString());
-                    if (isExtrusion)
+                    if (!isExtrusion)
                     {
                         GenerateElement("PANE");
                         GeneratePLOOP();

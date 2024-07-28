@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,37 +26,45 @@ namespace E3DTextGenerator
         public static List<List<PointF>> GetGlyphPoints()
         {
             List<List<PointF>> result = new List<List<PointF>>();
-            Font font = new Font(FontName, TextSize, FontStyle, TextHeightUnits);
-            
-            Bitmap bitmap = new Bitmap(1, 1);
-            Graphics graphics = Graphics.FromImage(bitmap);
-            graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-
-            float xLocationForText = 0;
-            List<PointF> glyphPoints = new List<PointF>();
-            List<byte> pointTypes = new List<byte>();
-            GraphicsPath graphicsPath = new GraphicsPath();
-
-            foreach (char character in Text)
+            using (Font font = new Font(FontName, TextSize, FontStyle, TextHeightUnits))
             {
-                graphicsPath.AddString( character.ToString(), font.FontFamily, (int)font.Style, font.Size, new PointF(xLocationForText, 0), StringFormat.GenericDefault);
-                try
+                using (Bitmap bitmap = new Bitmap(1, 1))
                 {
-                    byte[] pointsTypeByte = graphicsPath.PathTypes;
-                    for(int i = 0; i < graphicsPath.PathPoints.Length; i++ )
+                    using (Graphics graphics = Graphics.FromImage(bitmap))
                     {
-                        glyphPoints.Add(new PointF(graphicsPath.PathPoints[i].X, graphicsPath.PathPoints[i].Y));
-                        pointTypes.Add(pointsTypeByte[i]);
+                        graphics.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
+
+                        float xLocationForText = 0;
+
+                        foreach (char character in Text)
+                        {
+                            List<PointF> glyphPoints = new List<PointF>();
+                            List<byte> pointTypes = new List<byte>();
+
+                            using (GraphicsPath graphicsPath = new GraphicsPath())
+                            {
+                                graphicsPath.AddString(character.ToString(), font.FontFamily, (int)font.Style, font.Size, new PointF(xLocationForText, 0), StringFormat.GenericDefault);
+                                try
+                                {
+                                    byte[] pointsTypeByte = graphicsPath.PathTypes;
+                                    for (int i = 0; i < graphicsPath.PathPoints.Length; i++)
+                                    {
+                                        glyphPoints.Add(new PointF(graphicsPath.PathPoints[i].X, graphicsPath.PathPoints[i].Y));
+                                        pointTypes.Add(pointsTypeByte[i]);
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    Console.WriteLine("Error: " + ex.Message);
+                                }
+                            }
+                            result.Add(glyphPoints);
+                            PointTypesForSentense.Add(pointTypes);
+                            SizeF sizeF = graphics.MeasureString(character.ToString(), font);
+                            xLocationForText += sizeF.Width * WidthFactor;
+                        }
                     }
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error: " + ex.Message);
-                }
-                result.Add(glyphPoints);
-                PointTypesForSentense.Add(pointTypes);
-                SizeF sizeF = graphics.MeasureString(character.ToString(),font);
-                xLocationForText += sizeF.Width * WidthFactor;
             }
             return result;
         }
