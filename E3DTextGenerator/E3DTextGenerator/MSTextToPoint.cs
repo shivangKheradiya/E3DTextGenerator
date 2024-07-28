@@ -80,6 +80,5 @@ namespace E3DTextGenerator
             if (isStickthrough)
                 FontStyle ^= FontStyle.Strikeout;
         }
-
     }
 }

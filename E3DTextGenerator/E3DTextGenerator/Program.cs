@@ -10,21 +10,12 @@ namespace E3DTextGenerator
     {
         static void Main(string[] args)
         {
-            DBListGenerator dBListGenerator = new DBListGenerator();
-            PointDataProcessor pointDataProcessor = new PointDataProcessor();
-
-            pointDataProcessor.GlyphPointsForSentence = MSTextToPoint.GetGlyphPoints();
-            pointDataProcessor.Text = MSTextToPoint.Text;
-            pointDataProcessor.PointsTypesForSentence = MSTextToPoint.PointTypesForSentense;
-            pointDataProcessor.CreateBoundaryData();
-
-            pointDataProcessor.FontName = MSTextToPoint.FontName;
-            pointDataProcessor.ReadNegativeExtrusionInfo();
-
-            dBListGenerator.CharacterDataList = pointDataProcessor.CharacterDataList;
-            dBListGenerator.GlyphpointsTypesForSentence = MSTextToPoint.PointTypesForSentense;
-            dBListGenerator.GenerateDbList();
-            dBListGenerator.SaveDbList();
+            
+            if (args.Length == 0)
+            {
+                E3DTextGeneratorForm e3DTextGeneratorForm = new E3DTextGeneratorForm();
+                var result = e3DTextGeneratorForm.ShowDialog();
+            }
         }
     }
 }

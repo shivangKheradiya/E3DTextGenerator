@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CDBBCF13-513B-47B0-B5B7-DE6A6D3FB4DC}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>E3DTextGenerator</RootNamespace>
     <AssemblyName>E3DTextGenerator</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -32,10 +32,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,6 +51,12 @@
   <ItemGroup>
     <Compile Include="CharacterData.cs" />
     <Compile Include="DBListGenerator.cs" />
+    <Compile Include="E3DTextGeneratorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E3DTextGeneratorForm.Designer.cs">
+      <DependentUpon>E3DTextGeneratorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MSTextToPoint.cs" />
     <Compile Include="PointDataProcessor.cs" />
     <Compile Include="Program.cs" />
@@ -59,6 +69,11 @@
     <Content Include="ExtrusionInfo.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="E3DTextGeneratorForm.resx">
+      <DependentUpon>E3DTextGeneratorForm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
