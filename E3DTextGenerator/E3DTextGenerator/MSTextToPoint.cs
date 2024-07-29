@@ -57,11 +57,12 @@ namespace E3DTextGenerator
                                 {
                                     Console.WriteLine("Error: " + ex.Message);
                                 }
+                                xLocationForText += graphicsPath.GetBounds().Width * WidthFactor;
                             }
                             result.Add(glyphPoints);
                             PointTypesForSentense.Add(pointTypes);
-                            SizeF sizeF = graphics.MeasureString(character.ToString(), font);
-                            xLocationForText += sizeF.Width * WidthFactor;
+                            // SizeF sizeF = graphics.MeasureString(character.ToString(), font);
+                            // xLocationForText += sizeF.Width * WidthFactor;
                         }
                     }
                 }
