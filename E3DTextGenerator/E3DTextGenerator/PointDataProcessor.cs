@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace E3DTextGenerator
 {
@@ -61,21 +62,15 @@ namespace E3DTextGenerator
 
         public void ReadNegativeExtrusionInfo()
         {
-            XmlDocument ExtrusionInfoXml = new XmlDocument();
-            ExtrusionInfoXml.Load(ExtrusionInfoFilePath);
-            XmlNode xmlFontNode;
+            XElement ExtrusionInfoXmlFile = XElement.Load(ExtrusionInfoFilePath);
             try
             {
                 for (int i = 0; i < CharacterDataList.Count; i++)
                 {
-                    xmlFontNode = ExtrusionInfoXml.SelectSingleNode("/" + FontName);
-                    foreach (XmlNode charaterNode in xmlFontNode.ChildNodes)
-                    {
-                        if (charaterNode.Attributes["Character"].Value == CharacterDataList[i].CharacterName)
-                        {
-                            CharacterDataList[i].BoundariesNegativeExtrusions = charaterNode.Attributes["NegativeExtrusions"].Value;
-                        }
-                    }
+                    XElement FontElement = ExtrusionInfoXmlFile.Elements().FirstOrDefault(x => x.Attribute("FontName").Value == FontName);
+                    XElement characterElement = FontElement.Elements().FirstOrDefault(x=> x.Attribute("Character").Value == CharacterDataList[i].CharacterName);
+                    if (characterElement != null)
+                        CharacterDataList[i].BoundariesNegativeExtrusions = characterElement.Attribute("NegativeExtrusions").Value;
                 }
             }
             catch (Exception ex)

@@ -10,7 +10,6 @@ namespace E3DTextGenerator
     {
         static void Main(string[] args)
         {
-            
             if (args.Length == 0)
             {
                 E3DTextGeneratorForm e3DTextGeneratorForm = new E3DTextGeneratorForm();

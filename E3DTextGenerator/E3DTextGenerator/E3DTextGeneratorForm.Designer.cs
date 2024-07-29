@@ -52,7 +52,7 @@
             this.buGenerate.Location = new System.Drawing.Point(13, 145);
             this.buGenerate.Name = "buGenerate";
             this.buGenerate.Size = new System.Drawing.Size(75, 23);
-            this.buGenerate.TabIndex = 0;
+            this.buGenerate.TabIndex = 10;
             this.buGenerate.Text = "Generate";
             this.buGenerate.UseVisualStyleBackColor = true;
             this.buGenerate.Click += new System.EventHandler(this.buGenerate_Click);
@@ -79,7 +79,7 @@
             this.buClear.Location = new System.Drawing.Point(135, 145);
             this.buClear.Name = "buClear";
             this.buClear.Size = new System.Drawing.Size(75, 23);
-            this.buClear.TabIndex = 3;
+            this.buClear.TabIndex = 11;
             this.buClear.Text = "Clear";
             this.buClear.UseVisualStyleBackColor = true;
             this.buClear.Click += new System.EventHandler(this.buClear_Click);
@@ -106,9 +106,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(10, 68);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 13);
+            this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Text Width Factor (0-1)";
+            this.label2.Text = "Text Width Factor";
             // 
             // tbTextWidthFactor
             // 

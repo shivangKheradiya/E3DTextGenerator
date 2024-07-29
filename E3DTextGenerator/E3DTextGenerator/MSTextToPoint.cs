@@ -11,7 +11,8 @@ namespace E3DTextGenerator
 {
     public static class MSTextToPoint
     {
-        public static string Text { get; set; } = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/*-+.`~!@#$%^&*()_+[]\\{}|;':\",./<>?";
+        public static string Text { get; set; } = "";
+            //"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/*-+.`~!@#$%^&*()_+[]\\{}|;':\",./<>?";
         public static string FontName { get; set; } = "Arial";
         public static float TextSize { get; set; } = 250f;
         public static GraphicsUnit TextHeightUnits { get; set; } = GraphicsUnit.Millimeter;
@@ -56,6 +57,7 @@ namespace E3DTextGenerator
                                 catch (Exception ex)
                                 {
                                     Console.WriteLine("Error: " + ex.Message);
+                                    xLocationForText += TextSize * WidthFactor;
                                 }
                                 xLocationForText += graphicsPath.GetBounds().Width * WidthFactor;
                             }

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace E3DTextGenerator
 {
@@ -38,7 +39,14 @@ namespace E3DTextGenerator
                         GenerateElement("VERT", i, j);
                     }
                 }
+                FlipTowardsN();
             }
+        }
+
+        private void FlipTowardsN()
+        {
+            DbList.Add("SBFR");
+            DbList.Add("ROT BY 180 ABOUT E");
         }
 
         public void GenerateElement(string ElementType)
@@ -79,6 +87,8 @@ namespace E3DTextGenerator
                     }
                 }
             }
+            MessageBox.Show("E3D Text DbList file is Available at " + DbListFilePath);
+            DbList.Clear();
         }
     }
 }

@@ -1,4 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Arial>
-	<Letter Character="A" NegativeExtrusions="1"/>
-</Arial>
+<Fonts>
+	<Font FontName="Arial">
+		<Letter Character="A" NegativeExtrusions="1"/>
+	</Font>
+	<Font FontName="Gigi">
+		<Letter Character="A" NegativeExtrusions="1,2"/>
+	</Font>
+</Fonts>
