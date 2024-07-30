@@ -25,7 +25,7 @@
 		<Letter Character="#" NegativeExtrusions="1"/>
 		<Letter Character="$" NegativeExtrusions="1,2"/>
 		<Letter Character="%" NegativeExtrusions="2,4"/>
-		<Letter Character="&" NegativeExtrusions="1,2"/>
+		<Letter Character="&amp;" NegativeExtrusions="1,2"/>
 	</Font>
 	<Font FontName="Gigi">
 		<Letter Character="A" NegativeExtrusions="1,2"/>
