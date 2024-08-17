@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Fonts>
+	<Font FontName="Arial">
+		<Letter Character="A" NegativeExtrusions="1"/>
+		<Letter Character="B" NegativeExtrusions="1,2"/>
+		<Letter Character="D" NegativeExtrusions="1"/>
+		<Letter Character="O" NegativeExtrusions="1"/>
+		<Letter Character="P" NegativeExtrusions="1"/>
+		<Letter Character="Q" NegativeExtrusions="1"/>
+		<Letter Character="R" NegativeExtrusions="1"/>
+		<Letter Character="a" NegativeExtrusions="1"/>
+		<Letter Character="b" NegativeExtrusions="1"/>
+		<Letter Character="d" NegativeExtrusions="1"/>
+		<Letter Character="e" NegativeExtrusions="1"/>
+		<Letter Character="g" NegativeExtrusions="1"/>
+		<Letter Character="o" NegativeExtrusions="1"/>
+		<Letter Character="p" NegativeExtrusions="1"/>
+		<Letter Character="q" NegativeExtrusions="1"/>
+		<Letter Character="4" NegativeExtrusions="1"/>
+		<Letter Character="6" NegativeExtrusions="1"/>
+		<Letter Character="8" NegativeExtrusions="1,2"/>
+		<Letter Character="9" NegativeExtrusions="1"/>
+		<Letter Character="0" NegativeExtrusions="1"/>
+		<Letter Character="@" NegativeExtrusions="1"/>
+		<Letter Character="#" NegativeExtrusions="1"/>
+		<Letter Character="$" NegativeExtrusions="1,2"/>
+		<Letter Character="%" NegativeExtrusions="2,4"/>
+		<Letter Character="&amp;" NegativeExtrusions="1,2"/>
+	</Font>
+	<Font FontName="Gigi">
+		<Letter Character="A" NegativeExtrusions="1,2"/>
+	</Font>
+</Fonts>
