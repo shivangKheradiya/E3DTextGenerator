@@ -47,6 +47,7 @@ namespace E3DTextGenerator
             tbExtrusionLength.Clear();
             tbTextHeight.Clear();
             tbTextWidthFactor.Clear();
+
             chbBold.CheckState = CheckState.Unchecked;
             chbItalic.CheckState = CheckState.Unchecked;
             chbStricktrhough.CheckState = CheckState.Unchecked;
@@ -74,6 +75,7 @@ namespace E3DTextGenerator
             pointDataProcessor.FontName = MSTextToPoint.FontName;
             pointDataProcessor.ReadNegativeExtrusionInfo();
 
+            dBListGenerator.ExtrusionLength = float.Parse(tbExtrusionLength.Text);
             dBListGenerator.CharacterDataList = pointDataProcessor.CharacterDataList;
             dBListGenerator.GlyphpointsTypesForSentence = MSTextToPoint.PointTypesForSentense;
             dBListGenerator.GenerateDbList();
