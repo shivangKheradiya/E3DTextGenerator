@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -18,6 +17,7 @@ namespace E3DTextGenerator
         private static PointDataProcessor pointDataProcessor = new PointDataProcessor();
         private static XElement ExtrusionInfoXmlFile = XElement.Load(pointDataProcessor.ExtrusionInfoFilePath);
         private static SaveFileDialog saveFileDialog { get; set; } = new SaveFileDialog();
+
         public E3DTextGeneratorForm()
         {
             InitializeComponent();
