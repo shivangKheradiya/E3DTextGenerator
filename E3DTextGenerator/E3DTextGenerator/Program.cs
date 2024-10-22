@@ -8,6 +8,7 @@ namespace E3DTextGenerator
 {
     internal class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
             if (args.Length == 0)
